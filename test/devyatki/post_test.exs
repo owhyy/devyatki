@@ -3,7 +3,13 @@ defmodule Devyatki.ItemTest do
   alias Devyatki.Post
 
   describe "posts" do
-    @valid_attrs %{title: "some text", user_id: 1, cover_image: "https://picsum.photos/800/600", price: 1000, description: "some description"}
+    @valid_attrs %{
+      title: "some text",
+      user_id: 1,
+      cover_image: "https://picsum.photos/800/600",
+      price: 1000,
+      description: "some description"
+    }
     @invalid_attrs %{title: nil}
 
     def post_fixture(attrs \\ %{}) do
@@ -19,7 +25,7 @@ defmodule Devyatki.ItemTest do
       post = post_fixture(@valid_attrs)
       assert Post.get!(post.id) == post
     end
-  
+
     test "create/1 with valid data creates a post" do
       count_before_inserting = length(Post.list())
       assert {:ok, %Post{} = post} = Post.create(@valid_attrs)
@@ -31,7 +37,7 @@ defmodule Devyatki.ItemTest do
     test "create/1 with invalid data returns error changeset" do
       assert {:error, %Ecto.Changeset{}} = Post.create(@invalid_attrs)
     end
-  
+
     test "list/0 returns a list of posts stored in the DB" do
       post1 = post_fixture()
       post2 = post_fixture()

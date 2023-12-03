@@ -7,10 +7,10 @@ defmodule DevyatkiWeb.PostListComponent do
     ~H"""
     <div>
       <h1>Newest offers</h1>
-      <ul> 
+      <ul>
         <%= for post <- @posts do %>
           <li data-id={post.id}>
-           <%= post.title %>
+            <%= post.title %>
           </li>
         <% end %>
       </ul>
